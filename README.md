@@ -1,31 +1,94 @@
-# CDR Dashboard App
+# CDR Dashboard Template for Microsoft Teams
 
-## What is this?
-This is a website that helps people manage phone calls for a business. It's like a scoreboard for phone calls!
+A ready-to-customize call reporting dashboard that can be hosted as a web app and added to Microsoft Teams as a tab.
 
-## Cool Features
-*   **Setup Wizard**: When you first open it, a friendly guide helps you set everything up. It's like a game where you earn badges! 🏆
-*   **Dashboard**: Shows you all the recent phone calls. Green means the call was good, red means it failed.
-*   **Admin Tab**: A special area for the boss to manage users and settings.
-*   **Dark Mode**: You can switch the colors to be dark, which is easier on your eyes at night. 🌙
-*   **SIP Ladder**: A cool drawing that shows how a phone call travels through the internet.
+This project is a web app (Vite + TypeScript). It does not include a Teams app manifest or Teams SDK code, but it is built to be embedded in Teams once you host it over HTTPS.
 
-## How to Run It
-1.  Open your computer's terminal (the black box where you type commands).
-2.  Type `npm install` and hit Enter. This gets all the parts needed to build the app.
-3.  Type `npm run dev` and hit Enter. This starts the app.
-4.  Click the link that appears (it looks like `http://localhost:5173`).
+## Who this is for
+- Teams admins and developers who want a dashboard tab inside Teams.
+- Businesses that want a simple, modern UI for call detail records (CDR).
 
-## How to Reset the "First Run" Experience
-If you want to see the Setup Wizard again:
-1.  Right-click anywhere on the page and choose "Inspect".
-2.  Go to the "Application" tab.
-3.  Click "Local Storage" on the left.
-4.  Right-click and "Clear" everything.
-5.  Refresh the page!
+## What you get
+- Setup wizard and first-run experience
+- Call activity dashboard with success/failure indicators
+- Admin area for users and settings
+- Dark mode
+- SIP ladder visualization
 
-## For Developers
-This app uses:
-*   **Vite**: Makes the website fast.
-*   **TypeScript**: Helps catch mistakes in the code.
-*   **Fluent UI Styles**: Makes it look like a real Microsoft app.
+## Prerequisites
+- Node.js 18+ and npm
+- An HTTPS hosting location for production (required by Teams)
+- Azure resources if you plan to use the built-in integrations:
+  - Azure AD B2C
+  - Azure Functions API
+  - Power BI (optional)
+  - Azure Key Vault (optional)
+
+## Quick start (local)
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+2. Create a local environment file:
+   - Copy `.env.example` to `.env`.
+   - Fill in any values you plan to use now.
+3. Run the app:
+   ```bash
+   npm run dev
+   ```
+4. Open the local URL shown in your terminal (usually `http://localhost:5173`).
+
+## Configure the app
+All configuration is done with environment variables. Use `.env.example` as a guide.
+
+Key settings:
+- `VITE_AZURE_CLIENT_ID`
+- `VITE_AZURE_AUTHORITY`
+- `VITE_AZURE_KNOWN_AUTHORITY`
+- `VITE_AZURE_API_SCOPE`
+- `VITE_API_BASE_URL`
+- `VITE_POWERBI_*` (optional)
+- `VITE_KEYVAULT_URL` (optional)
+
+## Build for production
+1. Build the app:
+   ```bash
+   npm run build
+   ```
+2. Host the contents of `dist/` on your web server or static host.
+3. Make sure the site is reachable via HTTPS.
+
+## Add to Microsoft Teams as a tab
+This template is a standard web app. To use it in Teams:
+1. Host the app over HTTPS and copy the full URL (for example, `https://dashboard.yourcompany.com`).
+2. Open the Teams Developer Portal.
+3. Create a new app.
+4. Add a **Tab**:
+   - **Content URL**: your hosted app URL
+   - **Website URL**: your hosted app URL
+5. Add your domain to **Valid domains**.
+6. Save and install the app to a team or chat.
+
+If you want a more integrated experience (authentication, deep links, or context from Teams),
+add the Microsoft Teams JavaScript SDK and update the app to read Teams context.
+
+## Reset the first-run setup wizard
+If you want to see the setup wizard again:
+1. Open your browser dev tools.
+2. Go to Application > Local Storage.
+3. Clear the app's local storage.
+4. Refresh the page.
+
+## Tech stack
+- Vite
+- TypeScript
+- Fluent UI styles
+
+## Troubleshooting
+Common issues:
+- Blank screen in Teams: confirm the app is hosted over HTTPS and the domain is in the Teams app's valid domains list.
+- Login issues: confirm Azure AD B2C values in `.env` match your tenant settings.
+- API errors: check `VITE_API_BASE_URL` and confirm your Azure Functions endpoints are live.
+
+## License
+Use this template within your organization. Add a license file if you plan to distribute it publicly.
