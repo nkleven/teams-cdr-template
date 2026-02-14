@@ -1,0 +1,26 @@
+{
+  "name": "cdr-dashboard-api",
+  "version": "1.0.0",
+  "description": "Azure Functions API for CDR Dashboard",
+  "scripts": {
+    "dev": "func start",
+    "build": "tsc",
+    "watch": "tsc -w",
+    "prestart": "npm run build",
+    "start": "func start",
+    "test": "echo \"No tests yet\""
+  },
+  "dependencies": {
+    "@azure/functions": "^4.0.0",
+    "@azure/identity": "^4.0.0",
+    "@azure/keyvault-secrets": "^4.7.0",
+    "mssql": "^10.0.1",
+    "powerbi-api": "^2.0.0",
+    "powerbi-models": "^1.13.0"
+  },
+  "devDependencies": {
+    "@azure/functions-core-tools": "^4.0.5382",
+    "@types/node": "^20.10.0",
+    "typescript": "^5.2.2"
+  }
+}
