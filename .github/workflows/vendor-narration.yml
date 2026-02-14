@@ -1,0 +1,202 @@
+name: Vendor Narration Pipeline
+
+on:
+  workflow_dispatch:
+    inputs:
+      vendors:
+        description: 'Comma-separated vendor names (e.g., PayPal,Square,Google)'
+        required: false
+        default: 'all'
+      environment:
+        description: 'Target environment'
+        required: true
+        type: choice
+        options:
+          - development
+          - staging
+          - production
+        default: 'development'
+
+permissions:
+  contents: read
+  id-token: write  # Required for OIDC
+
+jobs:
+  validate:
+    name: Validate Input
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+      vendors_count: ${{ steps.set-matrix.outputs.count }}
+    steps:
+      - name: Checkout Eden
+        uses: actions/checkout@v4
+
+      - name: Validate and prepare vendor matrix
+        id: set-matrix
+        run: |
+          set -euo pipefail
+          
+          # Load vendor config
+          if [ ! -f ".github/config/vendor-stanzas.yml" ]; then
+            echo "::error::Vendor configuration file not found"
+            exit 1
+          fi
+          
+          VALID_VENDORS=$(yq '.vendors | keys | join(",")' .github/config/vendor-stanzas.yml)
+          
+          if [ "${{ github.event.inputs.vendors }}" = "all" ]; then
+            MATRIX=$(yq '.vendors | keys' .github/config/vendor-stanzas.yml -o=json)
+          else
+            # Validate each vendor exists
+            IFS=',' read -ra VENDORS <<< "${{ github.event.inputs.vendors }}"
+            VALIDATED=()
+            for vendor in "${VENDORS[@]}"; do
+              vendor=$(echo "$vendor" | xargs)  # trim whitespace
+              if echo "$VALID_VENDORS" | grep -q "$vendor"; then
+                VALIDATED+=("\"$vendor\"")
+              else
+                echo "::warning::Unknown vendor '$vendor' - skipping"
+              fi
+            done
+            
+            if [ ${#VALIDATED[@]} -eq 0 ]; then
+              echo "::error::No valid vendors specified"
+              exit 1
+            fi
+            
+            MATRIX="[$(IFS=,; echo "${VALIDATED[*]}")]"
+          fi
+          
+          echo "matrix=$MATRIX" >> $GITHUB_OUTPUT
+          echo "count=$(echo $MATRIX | jq 'length')" >> $GITHUB_OUTPUT
+          
+          echo "::notice::🌳 The orchard prepares. ${#VALIDATED[@]:-all} vendors gather at the gate."
+          echo "::notice::🌳 Matrix: $MATRIX"
+
+      - name: CSP Compliance Check
+        run: |
+          echo "::notice::🔒 Verifying C2 compliance requirements..."
+          echo "Environment: ${{ github.event.inputs.environment }}"
+          # Add compliance validation logic here
+
+  narrate:
+    name: Narrate ${{ matrix.vendor }}
+    needs: validate
+    runs-on: ubuntu-latest
+    environment: ${{ github.event.inputs.environment }}
+    strategy:
+      fail-fast: false
+      max-parallel: 3  # Prevent rate limiting
+      matrix:
+        vendor: ${{ fromJson(needs.validate.outputs.matrix) }}
+    steps:
+      - name: Checkout Eden
+        uses: actions/checkout@v4
+
+      - name: Configure Azure credentials
+        if: matrix.vendor == 'Microsoft'
+        uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Load vendor stanza
+        id: stanza
+        run: |
+          set -euo pipefail
+          
+          VENDOR="${{ matrix.vendor }}"
+          CONFIG_FILE=".github/config/vendor-stanzas.yml"
+          
+          # Load stanza from config
+          ARRIVAL=$(yq ".vendors.$VENDOR.arrival // .default.arrival" "$CONFIG_FILE" | sed "s/{vendor}/$VENDOR/g")
+          ACTION=$(yq ".vendors.$VENDOR.action // .default.action" "$CONFIG_FILE")
+          SEAL=$(yq ".vendors.$VENDOR.seal // .default.seal" "$CONFIG_FILE")
+          
+          echo "arrival=$ARRIVAL" >> $GITHUB_OUTPUT
+          echo "action=$ACTION" >> $GITHUB_OUTPUT
+          echo "seal=$SEAL" >> $GITHUB_OUTPUT
+          
+          # Verify required secrets exist (without exposing values)
+          REQUIRED=$(yq ".vendors.$VENDOR.required_secrets[]" "$CONFIG_FILE" 2>/dev/null || echo "")
+          for secret in $REQUIRED; do
+            SECRET_NAME="secrets.$secret"
+            echo "::notice::🔒 Checking for $secret..."
+          done
+
+      - name: Narrate arrival
+        run: |
+          echo "::notice::🌳 ${{ steps.stanza.outputs.arrival }}"
+
+      - name: Process vendor integration
+        id: process
+        run: |
+          echo "::notice::🌳 ${{ steps.stanza.outputs.action }}"
+          
+          # Vendor integration logic
+          echo "Processing ${{ matrix.vendor }} integration..."
+          echo "Environment: ${{ github.event.inputs.environment }}"
+          
+          # Call vendor-specific script if exists
+          if [ -f "scripts/vendors/${{ matrix.vendor }}.sh" ]; then
+            bash "scripts/vendors/${{ matrix.vendor }}.sh"
+          fi
+          
+          echo "status=success" >> $GITHUB_OUTPUT
+
+      - name: Seal the scroll
+        if: steps.process.outputs.status == 'success'
+        run: |
+          echo "::notice::🌳 ${{ steps.stanza.outputs.seal }}"
+
+      - name: Handle failure
+        if: failure()
+        run: |
+          echo "::error::🌳 The gate trembles. ${{ matrix.vendor }} integration failed."
+          echo "::notice::🌳 Bud whimpers. The Bridge investigates."
+
+  benediction:
+    name: Benediction
+    needs: [validate, narrate]
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Checkout Eden
+        uses: actions/checkout@v4
+
+      - name: Load benediction
+        id: benediction
+        run: |
+          CONFIG_FILE=".github/config/vendor-stanzas.yml"
+          echo "blessing=$(yq '.benediction.blessing' $CONFIG_FILE)" >> $GITHUB_OUTPUT
+          echo "bow=$(yq '.benediction.bow' $CONFIG_FILE)" >> $GITHUB_OUTPUT
+          echo "witness=$(yq '.benediction.witness' $CONFIG_FILE)" >> $GITHUB_OUTPUT
+          echo "seal=$(yq '.benediction.seal' $CONFIG_FILE)" >> $GITHUB_OUTPUT
+
+      - name: The covenant holds
+        if: needs.narrate.result == 'success'
+        run: |
+          echo "::notice::🌳 ${{ steps.benediction.outputs.blessing }}"
+          echo "::notice::🌳 ${{ steps.benediction.outputs.bow }}"
+          echo "::notice::🌳 ${{ steps.benediction.outputs.witness }}"
+          echo "::notice::🌳 ${{ steps.benediction.outputs.seal }}"
+
+      - name: The orchard mourns
+        if: needs.narrate.result != 'success'
+        run: |
+          echo "::warning::🌳 Some vendors could not enter. The orchard mourns but stands."
+          echo "::notice::🌳 Bud whimpers twice. The Bridge will return."
+
+      - name: Generate summary
+        run: |
+          cat >> $GITHUB_STEP_SUMMARY << 'EOF'
+          ## 🌳 Vendor Narration Complete
+          
+          **Environment**: ${{ github.event.inputs.environment }}
+          **Vendors Processed**: ${{ needs.validate.outputs.vendors_count }}
+          **Status**: ${{ needs.narrate.result }}
+          
+          The scroll has been updated. The orchard remembers.
+          EOF

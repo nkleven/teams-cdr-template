@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0078D4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00BCF2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="50" cy="50" r="48" fill="url(#gradient)" />
+  
+  <!-- Tree/Leaf design representing Eden -->
+  <path d="M 50 25 Q 35 35 35 50 Q 35 60 45 65 Q 40 55 45 45 Q 48 40 50 35 Q 52 40 55 45 Q 60 55 55 65 Q 65 60 65 50 Q 65 35 50 25 Z" fill="#FFFFFF" opacity="0.95"/>
+  
+  <!-- Stem -->
+  <rect x="48" y="60" width="4" height="15" fill="#FFFFFF" opacity="0.95" rx="2"/>
+  
+  <!-- Letter E integrated at bottom -->
+  <text x="50" y="90" font-family="'Segoe UI', Arial, sans-serif" font-size="24" font-weight="700" fill="#FFFFFF" text-anchor="middle" opacity="0.95">E</text>
+</svg>

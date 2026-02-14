@@ -1,0 +1,13 @@
+NiceHash QuickMiner 
+
+Dear NiceHash user, you are about to start using NiceHash services:
+you will share computing power of your device and for that, you will be paid accordingly in cryptocurrency Bitcoin (BTC);
+this may result in battery life shortage of your device and increased electricity consumption.
+
+How does it work: https://www.nicehash.com
+
+What is cryptocurrency: https://en.wikipedia.org/wiki/Cryptocurrency
+
+
+
+Accept  Decline

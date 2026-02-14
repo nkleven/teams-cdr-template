@@ -1,0 +1,21 @@
+{
+  "$schema": "https://aka.ms/azure/static-web-apps-cli/schema",
+  "configurations": {
+    "wedding-website": {
+      "appLocation": ".",
+      "outputLocation": ".",
+      "appBuildCommand": "",
+      "run": "echo 'No build required for static site'",
+      "appDevserverUrl": "http://localhost:8080",
+      "apiLocation": "",
+      "port": 4280,
+      "host": "localhost",
+      "https": false,
+      "verbose": true
+    },
+    "eden-source-c2": {
+      "appLocation": ".",
+      "outputLocation": "."
+    }
+  }
+}

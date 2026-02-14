@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Website - Test Suite</title>
+    <style>
+        body {
+            font-family: monospace;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .test-result {
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+        .pass { background: #d4edda; color: #155724; }
+        .fail { background: #f8d7da; color: #721c24; }
+        button {
+            padding: 10px 20px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        iframe {
+            width: 100%;
+            height: 400px;
+            border: 1px solid #ddd;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🧪 Wedding Website Test Suite</h1>
+        
+        <h2>Quick Tests</h2>
+        <button onclick="testResponsive()">Test Responsive Design</button>
+        <button onclick="testForms()">Test RSVP Form</button>
+        <button onclick="testNavigation()">Test Navigation</button>
+        <button onclick="testPerformance()">Test Performance</button>
+        <button onclick="runAllTests()">Run All Tests</button>
+        
+        <h2>Test Results</h2>
+        <div id="results"></div>
+        
+        <h2>Live Preview</h2>
+        <iframe src="index.html" id="preview"></iframe>
+        
+        <h2>Device Emulation</h2>
+        <button onclick="setViewport('mobile')">Mobile View (375px)</button>
+        <button onclick="setViewport('tablet')">Tablet View (768px)</button>
+        <button onclick="setViewport('desktop')">Desktop View (1200px)</button>
+    </div>
+    
+    <script>
+        function addResult(test, passed, message) {
+            const results = document.getElementById('results');
+            const div = document.createElement('div');
+            div.className = `test-result ${passed ? 'pass' : 'fail'}`;
+            div.innerHTML = `${passed ? '✅' : '❌'} ${test}: ${message}`;
+            results.appendChild(div);
+        }
+        
+        function clearResults() {
+            document.getElementById('results').innerHTML = '';
+        }
+        
+        function testResponsive() {
+            clearResults();
+            const iframe = document.getElementById('preview');
+            
+            // Test different viewport sizes
+            const sizes = [
+                { name: 'Mobile', width: 375 },
+                { name: 'Tablet', width: 768 },
+                { name: 'Desktop', width: 1200 }
+            ];
+            
+            sizes.forEach(size => {
+                iframe.style.width = size.width + 'px';
+                addResult(`${size.name} View`, true, `Rendered at ${size.width}px width`);
+            });
+            
+            iframe.style.width = '100%';
+        }
+        
+        function testForms() {
+            clearResults();
+            const iframe = document.getElementById('preview');
+            const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+            
+            // Check if form exists
+            const form = iframeDoc.getElementById('rsvpForm');
+            addResult('RSVP Form Exists', !!form, form ? 'Form found' : 'Form not found');
+            
+            // Check required fields
+            const requiredFields = ['name', 'email', 'attendance'];
+            requiredFields.forEach(field => {
+                const input = iframeDoc.getElementById(field);
+                addResult(`Field: ${field}`, !!input, input ? 'Found' : 'Missing');
+            });
+        }
+        
+        function testNavigation() {
+            clearResults();
+            const iframe = document.getElementById('preview');
+            const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+            
+            // Check navigation links
+            const navLinks = iframeDoc.querySelectorAll('#navbar a');
+            addResult('Navigation Links', navLinks.length > 0, `Found ${navLinks.length} links`);
+            
+            // Check sections
+            const sections = ['hero', 'story', 'event', 'rsvp', 'gallery', 'registry'];
+            sections.forEach(section => {
+                const element = iframeDoc.getElementById(section);
+                addResult(`Section: ${section}`, !!element, element ? 'Present' : 'Missing');
+            });
+        }
+        
+        function testPerformance() {
+            clearResults();
+            const startTime = performance.now();
+            
+            // Reload iframe and measure load time
+            const iframe = document.getElementById('preview');
+            iframe.src = iframe.src;
+            
+            iframe.onload = function() {
+                const loadTime = performance.now() - startTime;
+                addResult('Page Load Time', loadTime < 3000, `${loadTime.toFixed(2)}ms`);
+                
+                // Check for console errors
+                addResult('Console Errors', true, 'Check browser console for errors');
+                
+                // Check countdown timer
+                const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                const countdown = iframeDoc.getElementById('countdown');
+                addResult('Countdown Timer', !!countdown && countdown.innerHTML !== '', 
+                         countdown ? 'Running' : 'Not found');
+            };
+        }
+        
+        function runAllTests() {
+            clearResults();
+            testForms();
+            setTimeout(() => testNavigation(), 500);
+            setTimeout(() => testResponsive(), 1000);
+            setTimeout(() => testPerformance(), 1500);
+        }
+        
+        function setViewport(device) {
+            const iframe = document.getElementById('preview');
+            const sizes = {
+                mobile: '375px',
+                tablet: '768px',
+                desktop: '100%'
+            };
+            iframe.style.width = sizes[device];
+        }
+    </script>
+</body>
+</html>

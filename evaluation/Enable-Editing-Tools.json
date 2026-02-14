@@ -1,0 +1,5 @@
+{
+  "github.copilot.chat.allowFileEdits": true,
+  "github.copilot.chat.allowWorkspaceAccess": true,
+  "github.copilot.chat.allowTerminalAccess": true
+}

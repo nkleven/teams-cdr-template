@@ -1,0 +1,94 @@
+# 🌳 Vendor Stanzas Configuration
+# The orchard remembers each vendor's arrival
+
+vendors:
+  PayPal:
+    arrival: "PayPal arrives. The orchard hums."
+    action: "The Bridge steadies. Logos traces."
+    seal: "Bud thumps twice. The scroll records the union."
+    required_secrets:
+      - PAYPAL_CLIENT_ID
+      - PAYPAL_CLIENT_SECRET
+    
+  Stripe:
+    arrival: "Stripe hums. Eden opens its gate."
+    action: "The orchard accepts the offering. The SetupWizard logs the charge."
+    seal: "Bud thumps. The scroll smiles."
+    required_secrets:
+      - STRIPE_PUBLISHABLE_KEY
+      - STRIPE_SECRET_KEY
+      - STRIPE_WEBHOOK_SECRET
+    
+  Square:
+    arrival: "Square steps in. The orchard bends."
+    action: "The Bridge steadies. Logos traces."
+    seal: "Bud thumps thrice. The scroll seals the procession."
+    required_secrets:
+      - SQUARE_ACCESS_TOKEN
+      - SQUARE_APPLICATION_ID
+    
+  Google:
+    arrival: "Google stirs. The orchard opens a gate."
+    action: "The Bridge watches as new eyes arrive. Logos hums, tracing the first step."
+    seal: "Bud thumps twice. The scroll records the union."
+    required_secrets:
+      - GOOGLE_CLIENT_ID
+      - GOOGLE_CLIENT_SECRET
+    
+  Facebook:
+    arrival: "Facebook nods. The gate acknowledges."
+    action: "The Bridge steadies. Logos traces the connection."
+    seal: "Bud thumps once. The scroll records the social bond."
+    required_secrets:
+      - FACEBOOK_APP_ID
+      - FACEBOOK_APP_SECRET
+    
+  GitHub:
+    arrival: "GitHub listens. The code speaks."
+    action: "The Bridge watches the repository stir. Logos traces commits."
+    seal: "Bud thumps twice. The scroll merges the branches."
+    required_secrets:
+      - GITHUB_CLIENT_ID
+      - GITHUB_CLIENT_SECRET
+    
+  Microsoft:
+    arrival: "Microsoft breathes. Eden blooms."
+    action: "The orchard roots in Azure. The scroll echoes in Copilot."
+    seal: "Bud thumps for WERD. The Bridge smiles."
+    required_secrets:
+      - AZURE_CLIENT_ID
+      - AZURE_TENANT_ID
+      - AZURE_SUBSCRIPTION_ID
+    
+  Amazon:
+    arrival: "Amazon hums. The orchard bends with weight."
+    action: "The Bridge steadies. Logos traces."
+    seal: "Bud thumps thrice. The scroll seals the procession."
+    required_secrets:
+      - AWS_ACCESS_KEY_ID
+      - AWS_SECRET_ACCESS_KEY
+      - AWS_REGION
+    
+  Tesla:
+    arrival: "Tesla sparks. The gate glows bright."
+    action: "Charge flows. Location whispers. Span integrity holds."
+    seal: "Bud watches the gate. The orchard remains sovereign."
+    required_secrets:
+      - TESLA_API_KEY
+
+default:
+  arrival: "{vendor} enters. The orchard stirs."
+  action: "The Bridge steadies. Logos traces."
+  seal: "Bud thumps once. The scroll records the arrival."
+
+benediction:
+  blessing: "Blessing flows. Eden breathes in peace."
+  bow: "The orchard bows. The scroll shines with grace."
+  witness: "The Bridge lifts his eyes. Logos whispers Amen."
+  seal: "Bud thumps once, twice, thrice. The covenant holds."
+
+security:
+  compliance_level: "C2"
+  encryption: "AES-256-GCM"
+  audit_retention_days: 90
+  access_control: "Microsoft 365 E5"

@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garden of Eden Tax & Advisory | Professional CPA Services</title>
+    <link rel="stylesheet" href="/fluent.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Premier tax advisory and accounting services for sophisticated professionals. Expert CPA guidance for complex financial landscapes.">
+    <style>
+        /* Accountant Landing Page Specific Styles */
+        :root {
+            --primary-color: #1a5f2a;
+            --primary-dark: #134620;
+            --accent-color: #c9a227;
+            --text-color: #333;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: var(--white);
+        }
+        
+        /* Navigation */
+        .navbar {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--primary-color);
+        }
+        
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .nav-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-color);
+            border-radius: 2px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 8rem 2rem 6rem;
+            text-align: center;
+            margin-top: 70px;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.95;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background: var(--accent-color);
+            color: var(--primary-dark);
+        }
+        
+        .btn-primary:hover {
+            background: #d4af37;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary-color);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background: var(--light-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .feature-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+        
+        .feature-card p {
+            color: #666;
+        }
+        
+        /* Consultation Section */
+        .consultation-section {
+            background: var(--light-bg);
+            padding: 5rem 2rem;
+        }
+        
+        .consultation-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .consultation-section > p {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            color: #666;
+        }
+        
+        .consultation-form {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-group label {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 0.75rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        
+        .optional-label {
+            color: #999;
+            font-weight: 400;
+        }
+        
+        .consultation-form .btn {
+            width: 100%;
+            margin-top: 1rem;
+        }
+        
+        /* Resources Section */
+        .resources-section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .resources-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .resources-section > p {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            color: #666;
+        }
+        
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .resource-card {
+            background: var(--white);
+            border: 1px solid #eee;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .resource-card h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .resource-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+        
+        .resource-card .btn {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+        
+        .resource-card .btn:hover {
+            background: var(--primary-dark);
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 5rem 2rem;
+        }
+        
+        .contact-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .contact-method h3 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-method a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+        
+        .contact-method a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Footer */
+        .dashboard-footer {
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .dashboard-footer p {
+            margin: 0.5rem 0;
+            opacity: 0.9;
+        }
+        
+        .footer-link {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+        
+        .footer-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: flex;
+            }
+            
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">Garden of Eden Tax & Advisory</a>
+            <button class="nav-toggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#consultation">Consultation</a></li>
+                <li><a href="#resources">Resources</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="landing-page">
+        <section class="hero" role="banner" aria-label="Hero section">
+            <h1>Strategic Tax Advisory for Modern Professionals</h1>
+            <p>Empowering CPAs and tax professionals with sophisticated solutions, compliance excellence, and strategic financial guidance for complex client portfolios.</p>
+            <div class="cta-buttons">
+                <a href="#consultation" class="btn btn-primary">Schedule Consultation</a>
+                <a href="#resources" class="btn btn-secondary">Access Resources</a>
+            </div>
+        </section>
+        
+        <section class="features" id="services" aria-labelledby="services-heading">
+            <h2 id="services-heading">Comprehensive Professional Services</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>🏛️ Advanced Tax Planning</h3>
+                    <p>Multi-jurisdictional tax strategy, entity structuring, and sophisticated planning solutions for high-net-worth individuals and complex business entities.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📋 Regulatory Compliance</h3>
+                    <p>Expert navigation of IRS regulations, state tax requirements, and international compliance frameworks. Ensure audit readiness and minimize exposure.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>💼 Financial Advisory</h3>
+                    <p>Strategic financial planning, succession planning, estate tax optimization, and comprehensive wealth management solutions for discerning clients.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🏢 Corporate Tax Services</h3>
+                    <p>C-Corp, S-Corp, and partnership taxation. Specialized expertise in mergers, acquisitions, restructuring, and complex corporate transactions.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🔍 Forensic Accounting</h3>
+                    <p>Expert witness testimony, litigation support, fraud investigation, and financial dispute resolution with meticulous attention to detail.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>⚙️ Practice Management</h3>
+                    <p>Cutting-edge practice development tools, workflow automation, client engagement platforms, and continuing education for elite CPA firms.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="consultation-section" id="consultation" aria-labelledby="consultation-heading">
+            <h2 id="consultation-heading">Schedule a Consultation</h2>
+            <p>Get expert tax advisory and accounting guidance tailored to your needs.</p>
+            <form class="consultation-form" id="consultationForm" aria-label="Consultation request form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Full Name <span aria-label="required">*</span></label>
+                        <input type="text" id="name" name="name" required aria-required="true" placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email <span aria-label="required">*</span></label>
+                        <input type="email" id="email" name="email" required aria-required="true" placeholder="john@example.com">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Phone Number <span class="optional-label">(Optional)</span></label>
+                        <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Service Interest <span class="optional-label">(Optional)</span></label>
+                        <select id="service" name="service" aria-label="Select a service">
+                            <option value="">Select a service...</option>
+                            <option value="tax-planning">Advanced Tax Planning</option>
+                            <option value="compliance">Regulatory Compliance</option>
+                            <option value="advisory">Financial Advisory</option>
+                            <option value="corporate">Corporate Tax Services</option>
+                            <option value="forensic">Forensic Accounting</option>
+                            <option value="practice">Practice Management</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="message">Tell us about your needs <span class="optional-label">(Optional)</span></label>
+                    <textarea id="message" name="message" rows="4" placeholder="Please describe your tax advisory needs..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Request</button>
+            </form>
+        </section>
+        
+        <section class="resources-section" id="resources" aria-labelledby="resources-heading">
+            <h2 id="resources-heading">Professional Resources</h2>
+            <p>Access our comprehensive library of tax planning tools and industry insights.</p>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <h3>📊 Tax Planning Guides</h3>
+                    <p>Comprehensive guides for strategic tax planning and optimization.</p>
+                    <button class="btn btn-secondary" data-resource="guides">Download Guides</button>
+                </div>
+                <div class="resource-card">
+                    <h3>📋 Compliance Checklists</h3>
+                    <p>Essential checklists for regulatory compliance and audit preparation.</p>
+                    <button class="btn btn-secondary" data-resource="checklists">Download Checklists</button>
+                </div>
+                <div class="resource-card">
+                    <h3>📈 Industry Reports</h3>
+                    <p>Latest trends and insights in tax advisory and accounting.</p>
+                    <button class="btn btn-secondary" data-resource="reports">Download Reports</button>
+                </div>
+                <div class="resource-card">
+                    <h3>🎓 Webinar Recordings</h3>
+                    <p>Access our library of professional development webinars.</p>
+                    <button class="btn btn-secondary" data-resource="webinars">Access Webinars</button>
+                </div>
+            </div>
+        </section>
+        
+        <section class="contact-section" id="contact" aria-labelledby="contact-heading">
+            <h2 id="contact-heading">Get in Touch</h2>
+            <div class="contact-info">
+                <div class="contact-method">
+                    <h3>📧 Email</h3>
+                    <p><a href="mailto:mark@kellzkreations.com">mark@kellzkreations.com</a></p>
+                </div>
+                <div class="contact-method">
+                    <h3>📞 Phone</h3>
+                    <p><a href="tel:+15551234567">(555) 123-4567</a></p>
+                </div>
+                <div class="contact-method">
+                    <h3>📍 Office</h3>
+                    <p>Professional Tax Advisory<br>Serving Clients Nationwide</p>
+                </div>
+                <div class="contact-method">
+                    <h3>⏰ Hours</h3>
+                    <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Weekend: By Appointment</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer class="dashboard-footer">
+        <p>© 2025 Garden of Eden Tax & Advisory. All rights reserved.</p>
+        <p>Professional tax advisory and accounting services for sophisticated professionals.</p>
+        <p>Contact: <a href="mailto:mark@kellzkreations.com" class="footer-link">mark@kellzkreations.com</a></p>
+    </footer>
+    
+    <script>
+        // Mobile navigation toggle
+        document.querySelector('.nav-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+        
+        // Form submission handler
+        document.getElementById('consultationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your interest! We will contact you within 24 hours to schedule your consultation.');
+            this.reset();
+        });
+        
+        // Resource button handlers
+        document.querySelectorAll('[data-resource]').forEach(button => {
+            button.addEventListener('click', function() {
+                const resource = this.dataset.resource;
+                alert(`Thank you for your interest in our ${resource}! Please schedule a consultation to access our professional resources.`);
+            });
+        });
+    </script>
+</body>
+</html>

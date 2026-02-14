@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="15" failures="1" skipped="0" tests="36" time="11.508" timestamp="2025-12-28T18:49:17.920465-08:00" hostname="Gram"><testcase classname="tests.smoke_test.TestSmokeAgent" name="test_imports" time="0.003" /><testcase classname="tests.smoke_test.TestSmokeAgent" name="test_tool_execution" time="0.007" /><testcase classname="tests.smoke_test.TestSmokeAgent" name="test_tool_error_handling" time="0.004" /><testcase classname="tests.smoke_test.TestSmokeSafety" name="test_content_filter_initialization" time="0.001" /><testcase classname="tests.smoke_test.TestSmokeSafety" name="test_safe_input_passes" time="0.002" /><testcase classname="tests.smoke_test.TestSmokeSafety" name="test_pii_detection" time="0.002" /><testcase classname="tests.smoke_test.TestSmokeSafety" name="test_output_safety_check" time="0.001" /><testcase classname="tests.smoke_test.TestSmokeMonitoring" name="test_metrics_initialization" time="0.001" /><testcase classname="tests.smoke_test.TestSmokeMonitoring" name="test_record_interaction" time="0.001" /><testcase classname="tests.smoke_test.TestSmokeMonitoring" name="test_reliability_metrics" time="0.001" /><testcase classname="tests.smoke_test.TestSmokeMonitoring" name="test_generate_report" time="0.001" /><testcase classname="tests.smoke_test.TestSmokeTracing" name="test_tracer_initialization" time="0.001" /><testcase classname="tests.smoke_test.TestSmokeTracing" name="test_trace_operation" time="0.001" /><testcase classname="tests.smoke_test.TestSmokeIntegration" name="test_end_to_end_safe_workflow" time="0.003" /><testcase classname="tests.smoke_test.TestSmokeIntegration" name="test_blocked_content_workflow" time="0.002" /><testcase classname="tests.test_dashboard.TestDashboardEndpoints" name="test_health_check" time="0.025" /><testcase classname="tests.test_dashboard.TestDashboardEndpoints" name="test_get_sessions" time="0.003"><error message="failed on setup with &quot;RuntimeError: Cannot add middleware after an application has started&quot;">tests\test_dashboard.py:99: in app
+    return create_dashboard_app(dashboard_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\dashboard\server.py:117: in create_dashboard_app
+    app.add_middleware(
+.venv\Lib\site-packages\starlette\applications.py:125: in add_middleware
+    raise RuntimeError("Cannot add middleware after an application has started")
+E   RuntimeError: Cannot add middleware after an application has started</error></testcase><testcase classname="tests.test_dashboard.TestDashboardEndpoints" name="test_get_session_detail" time="0.004"><error message="failed on setup with &quot;RuntimeError: Cannot add middleware after an application has started&quot;">tests\test_dashboard.py:99: in app
+    return create_dashboard_app(dashboard_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\dashboard\server.py:117: in create_dashboard_app
+    app.add_middleware(
+.venv\Lib\site-packages\starlette\applications.py:125: in add_middleware
+    raise RuntimeError("Cannot add middleware after an application has started")
+E   RuntimeError: Cannot add middleware after an application has started</error></testcase><testcase classname="tests.test_dashboard.TestDashboardEndpoints" name="test_get_session_not_found" time="0.004"><error message="failed on setup with &quot;RuntimeError: Cannot add middleware after an application has started&quot;">tests\test_dashboard.py:99: in app
+    return create_dashboard_app(dashboard_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\dashboard\server.py:117: in create_dashboard_app
+    app.add_middleware(
+.venv\Lib\site-packages\starlette\applications.py:125: in add_middleware
+    raise RuntimeError("Cannot add middleware after an application has started")
+E   RuntimeError: Cannot add middleware after an application has started</error></testcase><testcase classname="tests.test_dashboard.TestDashboardEndpoints" name="test_cleanup_session" time="0.004"><error message="failed on setup with &quot;RuntimeError: Cannot add middleware after an application has started&quot;">tests\test_dashboard.py:99: in app
+    return create_dashboard_app(dashboard_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\dashboard\server.py:117: in create_dashboard_app
+    app.add_middleware(
+.venv\Lib\site-packages\starlette\applications.py:125: in add_middleware
+    raise RuntimeError("Cannot add middleware after an application has started")
+E   RuntimeError: Cannot add middleware after an application has started</error></testcase><testcase classname="tests.test_dashboard.TestDashboardEndpoints" name="test_cleanup_expired_sessions" time="0.003"><error message="failed on setup with &quot;RuntimeError: Cannot add middleware after an application has started&quot;">tests\test_dashboard.py:99: in app
+    return create_dashboard_app(dashboard_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\dashboard\server.py:117: in create_dashboard_app
+    app.add_middleware(
+.venv\Lib\site-packages\starlette\applications.py:125: in add_middleware
+    raise RuntimeError("Cannot add middleware after an application has started")
+E   RuntimeError: Cannot add middleware after an application has started</error></testcase><testcase classname="tests.test_dashboard.TestDashboardEndpoints" name="test_get_all_stats" time="0.004"><error message="failed on setup with &quot;RuntimeError: Cannot add middleware after an application has started&quot;">tests\test_dashboard.py:99: in app
+    return create_dashboard_app(dashboard_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\dashboard\server.py:117: in create_dashboard_app
+    app.add_middleware(
+.venv\Lib\site-packages\starlette\applications.py:125: in add_middleware
+    raise RuntimeError("Cannot add middleware after an application has started")
+E   RuntimeError: Cannot add middleware after an application has started</error></testcase><testcase classname="tests.test_dashboard.TestDashboardEndpoints" name="test_get_metrics" time="0.004"><error message="failed on setup with &quot;RuntimeError: Cannot add middleware after an application has started&quot;">tests\test_dashboard.py:99: in app
+    return create_dashboard_app(dashboard_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\dashboard\server.py:117: in create_dashboard_app
+    app.add_middleware(
+.venv\Lib\site-packages\starlette\applications.py:125: in add_middleware
+    raise RuntimeError("Cannot add middleware after an application has started")
+E   RuntimeError: Cannot add middleware after an application has started</error></testcase><testcase classname="tests.test_dashboard.TestDashboardEndpoints" name="test_dashboard_html" time="0.003"><error message="failed on setup with &quot;RuntimeError: Cannot add middleware after an application has started&quot;">tests\test_dashboard.py:99: in app
+    return create_dashboard_app(dashboard_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\dashboard\server.py:117: in create_dashboard_app
+    app.add_middleware(
+.venv\Lib\site-packages\starlette\applications.py:125: in add_middleware
+    raise RuntimeError("Cannot add middleware after an application has started")
+E   RuntimeError: Cannot add middleware after an application has started</error></testcase><testcase classname="tests.test_dashboard.TestDashboardEndpoints" name="test_monitoring_html" time="0.004"><error message="failed on setup with &quot;RuntimeError: Cannot add middleware after an application has started&quot;">tests\test_dashboard.py:99: in app
+    return create_dashboard_app(dashboard_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\dashboard\server.py:117: in create_dashboard_app
+    app.add_middleware(
+.venv\Lib\site-packages\starlette\applications.py:125: in add_middleware
+    raise RuntimeError("Cannot add middleware after an application has started")
+E   RuntimeError: Cannot add middleware after an application has started</error></testcase><testcase classname="tests.test_dashboard.TestDashboardEndpoints" name="test_favicon" time="0.002"><error message="failed on setup with &quot;RuntimeError: Cannot add middleware after an application has started&quot;">tests\test_dashboard.py:99: in app
+    return create_dashboard_app(dashboard_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\dashboard\server.py:117: in create_dashboard_app
+    app.add_middleware(
+.venv\Lib\site-packages\starlette\applications.py:125: in add_middleware
+    raise RuntimeError("Cannot add middleware after an application has started")
+E   RuntimeError: Cannot add middleware after an application has started</error></testcase><testcase classname="tests.test_dashboard.TestConnectionManager" name="test_connect" time="0.015"><failure message="TypeError: 'NoneType' object can't be awaited">tests\test_dashboard.py:208: in test_connect
+    await connection_manager.connect(mock_websocket)
+src\dashboard\server.py:71: in connect
+    await websocket.accept()
+E   TypeError: 'NoneType' object can't be awaited</failure></testcase><testcase classname="tests.test_dashboard.TestConnectionManager" name="test_disconnect" time="0.001" /><testcase classname="tests.test_dashboard.TestConnectionManager" name="test_broadcast" time="0.005" /><testcase classname="tests.test_dashboard.TestDashboardConfig" name="test_default_config" time="0.001" /><testcase classname="tests.test_dashboard.TestDashboardConfig" name="test_custom_config" time="0.001" /><testcase classname="tests.test_dashboard.TestWebSocketEndpoint" name="test_websocket_connect" time="0.003"><error message="failed on setup with &quot;RuntimeError: Cannot add middleware after an application has started&quot;">tests\test_dashboard.py:99: in app
+    return create_dashboard_app(dashboard_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\dashboard\server.py:117: in create_dashboard_app
+    app.add_middleware(
+.venv\Lib\site-packages\starlette\applications.py:125: in add_middleware
+    raise RuntimeError("Cannot add middleware after an application has started")
+E   RuntimeError: Cannot add middleware after an application has started</error></testcase><testcase classname="tests.test_dashboard.TestWebSocketEndpoint" name="test_websocket_get_sessions" time="0.003"><error message="failed on setup with &quot;RuntimeError: Cannot add middleware after an application has started&quot;">tests\test_dashboard.py:99: in app
+    return create_dashboard_app(dashboard_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\dashboard\server.py:117: in create_dashboard_app
+    app.add_middleware(
+.venv\Lib\site-packages\starlette\applications.py:125: in add_middleware
+    raise RuntimeError("Cannot add middleware after an application has started")
+E   RuntimeError: Cannot add middleware after an application has started</error></testcase><testcase classname="tests.test_dashboard.TestWebSocketEndpoint" name="test_websocket_get_session" time="0.003"><error message="failed on setup with &quot;RuntimeError: Cannot add middleware after an application has started&quot;">tests\test_dashboard.py:99: in app
+    return create_dashboard_app(dashboard_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\dashboard\server.py:117: in create_dashboard_app
+    app.add_middleware(
+.venv\Lib\site-packages\starlette\applications.py:125: in add_middleware
+    raise RuntimeError("Cannot add middleware after an application has started")
+E   RuntimeError: Cannot add middleware after an application has started</error></testcase><testcase classname="tests.test_dashboard.TestWebSocketEndpoint" name="test_websocket_invalid_json" time="0.003"><error message="failed on setup with &quot;RuntimeError: Cannot add middleware after an application has started&quot;">tests\test_dashboard.py:99: in app
+    return create_dashboard_app(dashboard_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\dashboard\server.py:117: in create_dashboard_app
+    app.add_middleware(
+.venv\Lib\site-packages\starlette\applications.py:125: in add_middleware
+    raise RuntimeError("Cannot add middleware after an application has started")
+E   RuntimeError: Cannot add middleware after an application has started</error></testcase><testcase classname="tests.test_dashboard.TestWebSocketEndpoint" name="test_websocket_unknown_message_type" time="0.003"><error message="failed on setup with &quot;RuntimeError: Cannot add middleware after an application has started&quot;">tests\test_dashboard.py:99: in app
+    return create_dashboard_app(dashboard_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\dashboard\server.py:117: in create_dashboard_app
+    app.add_middleware(
+.venv\Lib\site-packages\starlette\applications.py:125: in add_middleware
+    raise RuntimeError("Cannot add middleware after an application has started")
+E   RuntimeError: Cannot add middleware after an application has started</error></testcase></testsuite></testsuites>

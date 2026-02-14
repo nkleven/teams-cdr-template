@@ -1,0 +1,438 @@
+v2.1.1
+- Final sprint fixes for release.
+- Unified versioning with Eden Genesis.
+- Performance and stability improvements.
+
+v0.7.7.0
+- Added support for Nvidia RTX 50xx series.
+- Removed obsolete algorithms.
+
+v0.7.7.0
+- XelisHashV2 for Nvidia and AMD cards.
+- Removed obsolete algorithms
+
+v0.7.6.0
+- Pyrinhash for Nvidia and AMD cards.
+- Karlsenhash optimisations for Nvidia and AMD cards.
+
+v0.7.5.0
+- FishHash for Nvidia and AMD cards.
+
+v0.7.4.0
+- Alephium for Nvidia and AMD cards.
+
+v0.7.3.0
+- Karlsenhash for Nvidia and AMD cards.
+
+v0.7.2.0
+- Zelhash for Nvidia and AMD cards.
+
+v0.7.0.1
+- RandomX occasional rejected shares fix.
+
+v0.7.0.0
+- Bundle profiles support. User can optimize card parameters and save them to the profile. Profile can be added to the profiles bundle and applied to the rig.
+
+v0.6.6.1
+- Fix for Kawpow
+
+v0.6.6.0
+- Ironfish for Nvidia and AMD cards.
+
+v0.6.5.1
+- Fix for RandomX.
+
+v0.6.5.0
+- KHeavyHashs for AMD cards.
+
+v0.6.4.0
+- KHeavyHashs for Nvidia cards.
+
+v0.6.3.0
+- RandomX on CPU.
+- Autolykos optimizations.
+- CUDA 12.0 upgrade.
+
+v0.6.2.0
+- Neoscrypt for Nvidia and AMD cards.
+- Fix an issue in OC tune that was preventing set memory timings.
+- Increase OC profile file version to data_011.json.
+- Fixed an issue where OC tune fan profile 3 was not saved correctly.
+- OC tune fan and OC profiles are now saved in commands.json under 'on_quickminer.start'.
+- If an OC tune profile exists, switching the rig manager to "manual" will load that existing profile.
+- If a card is disabled (the current OC/fan profile) remains.
+- When a card is reenabled, it will load either a rig manager profile (if it was set) or an OC tune profile if one has been saved.
+
+v0.6.1.2
+- Fix for KawPow with the latest drivers
+- Fix QM crash if switchmany http request fails
+
+v0.6.1.1
+- BUGFIX - NHQM logic when restarting Excavator on 0 speed
+- BUGFIX - Setting core voltage for NVIDIA via OCTune
+- BUGFIX - Various OCTune fixes related to pre-filing and saving the profiles
+- BUGFIX - Upgrading from version v0.5.5.0 or older caused mining not to start.
+- BUGFIX - Game Mode multi algo support
+- REFACTOR - AMD overclock via OCTune
+
+v0.6.1.0
+- Added partial unlock for drivers between 512.96 to 522.25
+- Added a notice to install 522.25 drivers if LHR GPU
+- Auto Profit Switching & benchmarking
+- OCTune bugfix
+- Updated Cuda to 11.8 to support Ada and Hopper GPUs
+
+v0.6.0.1
+- Update Kawpow algorithem for AMD cards with only 4Gb/6Gb vram use split DAG.
+- Split DAG with ETCHash.
+- Remove old octune.
+- Autoswitch to ETCHash after ETH POS merge.
+
+v0.6.0.0
+- Support for Autolykos, Kawpow, and Etchash. 
+- Support for multi-algorithm OC profile.
+- Added a warning when users aren't using the NH mining address.
+
+v0.5.5.1
+- Correct an issue where some newly found shares were either associated with a wrong base_nonce ("job not found") or a wrong job_id ("share above target") when switching to a new job.
+- Remove -t parameter, using test/dev network, is now done entirely through the config.
+- \quickstart API use as a "loc" parameter the full URL of the pool instead of "auto."
+- Fix an issue where the console (debug mode) closed QM without killing the excavator.
+
+v0.5.5.0
+- Correct issue with AMD card (e.g., 5600xt) for which max memory allocation for a single variable is smaller than dag size.
+- The installer will show only the "stable" version if no RC is provided (or if it is identical to the stable one).
+- LHR driver version check moved to the excavator (removed from QM).
+
+v0.5.4.5
+- Support for LHRv1/v2 on Linux.
+- Add support for the new mining address format.
+- Add to windows registry mining address / latest run NHQM and store information about every zipped version used on the system.
+- Correct an issue where the language was switching from local to English if there was no pre-existing configuration file. Now QM will use in such case by default the local language if supported, English otherwise (change to the language is still possible from the configuration menu)
+- Fixed a bug causing a slower hash rate on the previous version.
+
+v0.5.4.4
+- OCTune redesign.
+- Stability fixes for the LHR cards.
+
+v0.5.4.3
+- Increased stability of the LHR unlock system (increased CPU usage for LHRv3 cards).
+- Removed old LHR unlock system and all associated functionalities in QM/OCtune.
+- Modified /quickstart API so it can start and stop with no provided parameters to include that logic in OCtune.
+- The LHRv3 unlock system has two algorithms: the first leading to a faster hash rate and the second being more stable. The default algorithm is the fastest one, switch to the more stable one can be achieved by using "-CLS" in the Excavator command line.
+- Fan control for NVidia cards is reverted to the "slope" model as the PID fan control acts too heretically with high VRAM temperature.
+- The NVidia minimum driver version is raised to 511.09. The latest version of the driver disables the LHR unlock system. The recommended driver version for the LHR unlock system is 512.77.
+
+v0.5.4.2
+- Unlock LHRv3 (3080 and 3050 12GB cards)
+
+v0.5.4.1
+- Add a secondary unlock system for cards which doesn't unlock after dag generation
+- When the monitoring fails to return a valid value exit application
+
+v0.5.4.0
+- Full LHR removal
+- Adjusted LHR timings
+- Job switching optimisations
+
+v0.5.3.6
+- Fix issue where nhqm.conf is deleted when a crash happens
+- Correct issue which was causing on some machine to crash on start
+- Implement new mining address nhmp.auto.nicehash.com
+- Redesign start/stop mining button
+- Bypass latency check, it is not necessary anymore with a new mining address 
+- Add PID fan control to AMD and Nvidia cards
+- Correct issue where nhqm.conf was being modified constantly 
+- Decrease smart fan update from 1s to 4s
+- Decrease LHR check/update from 1s to 4s (=> reduces CPU usage)
+- Compatibility fixes for Linux version
+- Allows overriding fan regime while OC profile is applied
+- Allows changing LHR parameter while auto-tuning is active
+- Supported GPU list is determined using SM version and memory rather than using a hardcoded list
+- Fix clock range for 3080ti for OC autotuning in OCtune
+
+v0.5.3.5
+- Fix cuda paths in several project as they were still pointing to old 11.3 version
+- Fix bug which turned off nvidia core OC in profile2. This one is now restored
+- Eula/notice won't show up anymore during installation, only when the program is run the first time or if files are missing.
+- Add 3060 laptop 2520 to non LHR list
+- Add 3070 laptop (that non lhr card is still unconfirmed, although a page on internet refers to is as non lhr)
+- Bump minimal version to 470.05 in QM
+- Added new 3050 and 3080 12Gb to non LHR list (new LHR version not sup�ported yet)
+- Fix and add support for testnet segwit address
+
+v0.5.3.4
+- Support for segwit address
+- New QM startup (AVG compliance)
+- QM does not start mining automatically anymore
+    + Display notice to be accepted by users (xcvtr-231; xcvt-229)
+    + Solve various issues where QM is stuck waiting for excavator answer while this one has crashed. Force excavator to exit so that excavator can be restarted (nb: in some case a manual reboot may still be required (hard driver crash))
+- Increase /devices_cuda API timeout as it was causing QM to report a non existing lost of communication with excavator (xcvtr-226)
+- Apply core clock/voltage OC only on highest power states for 5xxx serie and below (xcvtr-238)
+- Solve issue where the "start" buttons were not synchronized
+- Main form is shown by default, behavior can be changed in setting or from the main form
+- Eula/notice is required is the rtfs files are missing from licences directory
+- Add 3050 to list of LHR card
+- Fix logic such that non LHR card such as 3090 cannot trigger LHR
+- Solve issue where the "start" buttons were not synchronized
+- Main form is shown by default, behavior can be changed in setting or from the main form
+- Eula/notice is required is the rtfs files are missing from licences directory
+- Add 3050 to list of LHR card
+- Fix logic such that non LHR card such as 3090 cannot trigger LHR
+- Treat as non LHR the 3060 LHRv1 if it is detected is conjunction with nvidia driver 470.05 which allows to bypass LHR.
+
+v0.5.3.3
+- Fix crashes due to the presence of AMD processor with iGPU (and hardwares not supported by Overdrive)
+- Integrated GPU are now properly recognized but are disabled (appears as "stopped" in rig manager)
+- Disable GPU with less than 5Gb of vram (gpu appears as "stopped" in rig manager)
+- Fix issue where the AMD detection routine in QM was failing while loading hardware information on a rig with more than 5/6 gpu's. The routine can now support up to 16 gpu's
+- Implement Game Mode for AMD card (same level of support as NVIDIA cards)  
+- fix issue with 5xxx online profile crashing the driver on reset when core voltage has been modified 
+- fix a potential memory leak in opencl as all allocated memory buffer were not properly released when a new dag detected 
+- cosmetic changes in excavator execution window:
+     + AMD cards are displayed in the same way as the Nvidia ones
+     + error messages related to the AMD detections appears only for machines having AMD cards
+     + remove unnecessary debugging information
+
+v0.5.3.2
+- Correct memory leak due to cl_event
+- Remove unecessary cl_event
+- Use a fixed delay time in latency hiding logic 
+- Reorganise buffer declaration
+- Allow to bypass AMD device detection which seems to no work for some users
+- Fix flow to avoid crashes on non ampere gpus
+
+v0.5.3.1
+- Store autotune parameters
+- Support for AMD cards
+- Bug fixes and small improvements
+
+v0.5.3.0
+- Unlock LHR cards
+- New icons
+- Support for reporting mining statistics with key 's'
+- Connection related reports
+- Added age agreement checkbox
+- Removed hidden miner execution settings
+- Fix for incorrect speed reporting at stratup
+- More stable speed reports during runtime
+- Small improvement on ethereum kernel
+- OCTune LHR manipulation
+- Bug fixes and small improvements
+
+v0.5.2.0
+- Added EULA dialog
+- Added ability to set EnvironmentVariables (thus CUDA vars)
+- Added two more mining locations
+- Bug fixes and small improvements
+
+v0.5.1.6
+- Bug fixes and small improvements
+
+v0.5.1.5
+- OPTIMIZE support for enterprise cards (Tesla, Quadro)
+- Update backup
+- Bug fixes and small improvements
+
+v0.5.1.4
+- OCTune fixes and improvements
+- disable CPU mining during Game Mode
+- Bug fixes and small improvements
+
+v0.5.1.3
+- Bug fixes and small improvements
+
+v0.5.1.2
+- Bug fixes and small improvements
+
+v0.5.1.0
+- OCTune: display subvendor
+- Improved configurability
+- Added 5th fan mode (Target plus decrease MCC)
+- Bug fixes and small improvements
+
+v0.5.0.1
+- Multilang support
+- Game Mode - ability to override disp device
+- Added optimization: MSI
+- Game Mode: reset memory timings when act
+- Default apply Lite Optimization
+- Bug fixes and small improvements
+
+v0.4.7.1
+- Crash detect & recovery
+- OPTIMIZE/OCTune exclusivity
+- Bug fixes and small improvements
+
+v0.4.7.0
+- Update to CUDA 11.2 update 2
+- NVIDIA driver ver min 461.33
+- Bug fixes and small improvements
+
+v0.4.6.1
+- Improved shutdown OC restore
+- Added autostart countdown dialog
+- Bug fixes and small improvements
+
+v0.4.6.0
+- Fixed GTX 1660 SUPER Micron Optimizations
+- Fixed invalid DAG gen for some cards
+- Omit MCC when generating DAG
+- VRAM Temp for GDDR6
+- Bug fixes and small improvements
+
+v0.4.5.5
+- Bug fixes and small improvements
+
+v0.4.5.4
+- Alt OC with MAX TDP (Suprim X BIOS compatibility fix)
+- Persistent core uvolt OC
+- Added backup URL for optimizations data
+- Bug fixes and small improvements
+
+v0.4.5.3
+- Greatly improved install & update security with N/M signatures
+- Bug fixes and small improvements
+
+v0.4.5.0
+- Improved CUDA detection mechanism
+- Improved update mechanism
+- Increased security (no more CORS)
+- Bug fixes and small improvements
+
+v0.4.4.0
+- Added OPTIMIZATION profiles: High, Efficient, EfficientLow
+- GTX 1660 SUPER Hynix OPTIMIZATION separation
+- Bug fixes and small improvements
+
+v0.4.3.1
+- Small speed increase for some older gen cards
+- Added OPTIMIZE for: GTX 1070 Ti, GTX 1070, GTX 1060 6GB
+- Fixed device index bug that was causing invalid DAG issues
+- Bug fixes and small improvements
+
+v0.4.3.0
+- Added OPTIMIZE for: GTX 1080 Ti, GTX 1080
+- Bug fixes and small improvements
+
+v0.4.2.1
+- Memory timings to OCTune
+- Bug fixes and small improvements
+
+v0.4.2.0
+- Added option to manipulate memory timings
+- Bug fixes and small improvements
+
+v0.4.1.5
+- Configurable speed zero/max grace time
+- Added WhenNoDevices error handling (nothing, restart, reboot, rest. driver)
+- Bug fixes and small improvements
+
+v0.4.1.4
+- Compatibility with NVIDIA 470.05 developer drivers
+- Bug fixes and small improvements
+
+v0.4.1.3
+- Duplicate uniqueID gen new
+- NVAPI Power methods (reliability++)
+- Bug fixes and small improvements
+
+v0.4.1.2
+- Bug fixes and small improvements
+
+v0.4.1.1
+- Improved optional settings dialog
+- Bug fixes and small improvements
+
+v0.4.0.3
+- More robust device detection identification across PC reboots
+- Fixed binding interface issues
+- More annoying first time info how to access NHQM
+- Bug fixes and small improvements
+
+v0.4.0.1
+- Fixed critical get memory speed bug in v0.4.0.0
+- Delayed default autostart from 5 to 15 seconds
+- Full support for TITAN RTX
+
+v0.4.0.0
+- Added experimental voltage control for undervolting
+- Added reporting of hotspot (vram) temperature
+- Optimize set fan speed according to GPU & HotSpot for most of cards
+- Added 4th error recovery option: driver restart
+- Bug fixes and small improvements
+
+v0.3.3.0
+- Added auto detection of best location
+- Improved formatting of config file
+- Added Export log files button
+- Bug fixes and small improvements
+
+v0.3.2.7
+- Added ability to disable auto update feature
+- Fixed power reporting for some (Mobile) devices
+- Added Help - link to Wiki
+- Option to reinstall if already installed
+- Bug fixes and small improvements
+
+v0.3.2.6
+- Exposed additional SmartFan (advanced) settings
+- Pascal reporting of FAN level in % if possible
+- Added support for TITAN V
+- Bug fixes and small improvements
+
+v0.3.2.5
+- Bug fixes and small improvements
+
+v0.3.2.3
+- Added Game Mode (experimental)
+- Bug fixes and small improvements
+
+v0.3.2.2
+- SmarFan improvements
+- Added DNSoverHTTPS
+- Improved error handling
+- Bug fixes and small improvements
+
+v0.3.2.1
+- Bug fixes and small improvements
+
+v0.3.2.0
+- Improved speed measuring
+- Installer/uninstaller
+- Bug fixes and small improvements
+
+v0.3.1.2
+- Excavator: Pascal speed restored
+- Service autostart method removed
+- Bug fixes and small improvements
+
+v0.3.1.1
+- Excavator with SmartFan
+- OC profiles are separate now from Fan profiles
+- Bug fixes and small improvements
+
+v0.3.1.0
+- Optimize profiles (manage over Rig manager)
+- Bug fixes and small improvements
+
+v0.3.0.7
+- Excavator build 574
+- OCTune: added alternative overclocking method
+- OCTune: added experimental autotune
+- OCTune: greatly improved autotune
+- Added GDDR6X temp measurement (RTX 3080 & 3090)
+- Bug fixes and small improvements
+
+v0.3.0.5
+- Experimental Autotuner added
+- Bug fixes and small improvements
+
+v0.3.0.0
+- Autoupdater
+- Bug fixes and small improvements
+
+v0.2.0.0
+- Added XMRig CPU Miner
+- Added error-case handlers
+- Bug fixes and small improvements

@@ -1,0 +1,224 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - generic [ref=e3]:
+    - generic [ref=e5]:
+      - paragraph [ref=e6]: Save the Date
+      - heading "Kelli & Nathan" [level=1] [ref=e7]
+      - generic [ref=e8]: ❧ ❧ ❧
+      - paragraph [ref=e9]: September 10, 2027
+      - generic [ref=e10]:
+        - generic [ref=e11]:
+          - generic [ref=e12]: "576"
+          - text: Days
+        - generic [ref=e13]:
+          - generic [ref=e14]: "18"
+          - text: Hours
+        - generic [ref=e15]:
+          - generic [ref=e16]: "14"
+          - text: Minutes
+        - generic [ref=e17]:
+          - generic [ref=e18]: "35"
+          - text: Seconds
+      - generic [ref=e19]:
+        - link "RSVP Now" [ref=e20] [cursor=pointer]:
+          - /url: "#rsvp"
+        - link "See Details" [ref=e21] [cursor=pointer]:
+          - /url: "#event"
+      - generic [ref=e22]:
+        - generic [ref=e23]: 📅 Sep 10, 2027
+        - generic [ref=e24]: 📍 Venue TBD
+        - generic [ref=e25]: 🕒 3:00 PM
+    - generic [ref=e26]:
+      - generic [ref=e27]: Scroll
+      - generic [ref=e28]: ↓
+  - navigation [ref=e29]:
+    - generic [ref=e30]: K & N
+    - list [ref=e31]:
+      - listitem [ref=e32]:
+        - link "Our Story" [active] [ref=e33] [cursor=pointer]:
+          - /url: "#story"
+      - listitem [ref=e34]:
+        - link "The Event" [ref=e35] [cursor=pointer]:
+          - /url: "#event"
+      - listitem [ref=e36]:
+        - link "Gallery" [ref=e37] [cursor=pointer]:
+          - /url: "#gallery"
+      - listitem [ref=e38]:
+        - link "RSVP" [ref=e39] [cursor=pointer]:
+          - /url: "#rsvp"
+      - listitem [ref=e40]:
+        - link "Registry" [ref=e41] [cursor=pointer]:
+          - /url: "#registry"
+      - listitem [ref=e42]:
+        - link "Admin Portal" [ref=e43] [cursor=pointer]:
+          - /url: "#admin-portal"
+      - listitem [ref=e44]:
+        - link "Admin" [ref=e45] [cursor=pointer]:
+          - /url: "#admin-portal"
+  - generic [ref=e46]:
+    - generic [ref=e47]:
+      - generic [ref=e48]: How It All Began
+      - heading "Our Love Story" [level=2] [ref=e49]
+    - generic [ref=e51]:
+      - img "Couple holding hands" [ref=e53]
+      - generic [ref=e54]:
+        - paragraph [ref=e55]: Every love story is beautiful, but ours is our favorite. From the moment we met, we knew there was something special between us.
+        - paragraph [ref=e56]: Through laughter and challenges, we've grown stronger together, building a foundation of love, trust, and endless support for one another.
+    - generic [ref=e57]:
+      - generic [ref=e58]:
+        - generic [ref=e59]: 💕
+        - generic [ref=e60]: "2022"
+        - heading "First Meeting" [level=3] [ref=e61]
+        - paragraph [ref=e62]: Our paths crossed and sparks flew
+      - generic [ref=e63]:
+        - generic [ref=e64]: ❤️
+        - generic [ref=e65]: "2024"
+        - heading "Falling in Love" [level=3] [ref=e66]
+        - paragraph [ref=e67]: Our journey together truly began
+      - generic [ref=e68]:
+        - generic [ref=e69]: 💍
+        - generic [ref=e70]: "2026"
+        - heading "The Proposal" [level=3] [ref=e71]
+        - paragraph [ref=e72]: She said yes!
+      - generic [ref=e73]:
+        - generic [ref=e74]: 👰
+        - generic [ref=e75]: "2027"
+        - heading "Forever Begins" [level=3] [ref=e76]
+        - paragraph [ref=e77]: Our wedding day
+  - generic [ref=e78]:
+    - generic [ref=e79]:
+      - generic [ref=e80]: Join Us
+      - heading "Wedding Details" [level=2] [ref=e81]
+    - generic [ref=e83]:
+      - generic [ref=e84]:
+        - img "Wedding ceremony" [ref=e86]
+        - generic [ref=e87]:
+          - generic [ref=e88]: 💒
+          - heading "Ceremony" [level=3] [ref=e89]
+          - generic [ref=e90]:
+            - paragraph [ref=e91]:
+              - generic [ref=e92]: 📅
+              - text: September 10, 2027
+            - paragraph [ref=e93]:
+              - generic [ref=e94]: ⏰
+              - text: 3:00 PM
+            - paragraph [ref=e95]:
+              - generic [ref=e96]: 📍
+              - text: Venue TBD
+          - button "Add to Calendar" [ref=e97] [cursor=pointer]
+      - generic [ref=e98]:
+        - img "Wedding reception" [ref=e100]
+        - generic [ref=e101]:
+          - generic [ref=e102]: 🥂
+          - heading "Reception" [level=3] [ref=e103]
+          - generic [ref=e104]:
+            - paragraph [ref=e105]:
+              - generic [ref=e106]: 📅
+              - text: September 10, 2027
+            - paragraph [ref=e107]:
+              - generic [ref=e108]: ⏰
+              - text: 6:00 PM
+            - paragraph [ref=e109]:
+              - generic [ref=e110]: 📍
+              - text: Venue TBD
+          - button "View Location" [ref=e111] [cursor=pointer]
+    - generic [ref=e112]:
+      - heading "👗 Dress Code" [level=3] [ref=e113]
+      - paragraph [ref=e114]: Semi-Formal / Cocktail Attire
+  - generic [ref=e115]:
+    - generic [ref=e116]:
+      - generic [ref=e117]: Captured Moments
+      - heading "Our Memories" [level=2] [ref=e118]
+    - generic [ref=e120]:
+      - generic [ref=e121] [cursor=pointer]:
+        - img "Romantic couple" [ref=e122]
+        - generic [ref=e124]: Our Adventure
+      - generic [ref=e125] [cursor=pointer]:
+        - img "Couple sunset" [ref=e126]
+        - generic [ref=e128]: Together
+      - generic [ref=e129] [cursor=pointer]:
+        - img "Engagement ring" [ref=e130]
+        - generic [ref=e132]: She Said Yes
+      - generic [ref=e133] [cursor=pointer]:
+        - img "Wedding decor" [ref=e134]
+        - generic [ref=e136]: The Details
+      - generic [ref=e137] [cursor=pointer]:
+        - img "Wedding venue" [ref=e138]
+        - generic [ref=e140]: Our Venue
+      - generic [ref=e141] [cursor=pointer]:
+        - img "Pink flowers" [ref=e142]
+        - generic [ref=e144]: Blooming Love
+  - dialog:
+    - button: ×
+    - img
+  - generic [ref=e146]:
+    - generic [ref=e147]:
+      - generic [ref=e148]: Be Our Guest
+      - heading "RSVP" [level=2] [ref=e149]
+      - paragraph [ref=e151]: We would be honored to have you celebrate with us. Please let us know if you can attend by August 10, 2027.
+    - generic [ref=e152]:
+      - generic [ref=e153]:
+        - generic [ref=e154]:
+          - generic [ref=e155]: Your Name
+          - textbox "Your Name" [ref=e156]:
+            - /placeholder: Full Name
+        - generic [ref=e157]:
+          - generic [ref=e158]: Email Address
+          - textbox "Email Address" [ref=e159]:
+            - /placeholder: your@email.com
+      - generic [ref=e160]:
+        - generic [ref=e161]:
+          - generic [ref=e162]: Will You Attend?
+          - combobox "Will You Attend?" [ref=e163]:
+            - option "Please Select" [selected]
+            - option "Joyfully Accept 💕"
+            - option "Regretfully Decline"
+        - generic [ref=e164]:
+          - generic [ref=e165]: Number of Guests
+          - spinbutton "Number of Guests" [ref=e166]
+      - generic [ref=e167]:
+        - generic [ref=e168]: Special Requests or Message
+        - textbox "Special Requests or Message" [ref=e169]:
+          - /placeholder: Dietary requirements, song requests, or a message for the couple...
+      - button "Send RSVP 💌" [ref=e170] [cursor=pointer]
+  - generic [ref=e171]:
+    - generic [ref=e172]:
+      - generic [ref=e173]: For Wedding Coordinators
+      - heading "Admin Portal" [level=2] [ref=e174]
+    - paragraph [ref=e176]: Access the travel coordination dashboard to manage travel arrangements, payments, and wedding logistics.
+    - link "Enter Admin Portal" [ref=e177] [cursor=pointer]:
+      - /url: "#"
+    - paragraph [ref=e178]: Travel Coordination Management
+  - generic [ref=e179]:
+    - generic [ref=e180]:
+      - generic [ref=e181]: With Gratitude
+      - heading "Gift Registry" [level=2] [ref=e182]
+    - paragraph [ref=e185]: "Your presence at our wedding is the greatest gift we could ask for. However, if you wish to honor us with a gift, we have registered at the following stores:"
+    - generic [ref=e186]:
+      - link "🛒 Amazon Wishlist Browse our carefully selected items" [ref=e187] [cursor=pointer]:
+        - /url: https://www.amazon.com/wedding/share/KelliAndNathan
+        - generic [ref=e188]: 🛒
+        - heading "Amazon Wishlist" [level=3] [ref=e189]
+        - paragraph [ref=e190]: Browse our carefully selected items
+      - link "🎯 Target Registry View curated gift ideas" [ref=e191] [cursor=pointer]:
+        - /url: "#"
+        - generic [ref=e192]: 🎯
+        - heading "Target Registry" [level=3] [ref=e193]
+        - paragraph [ref=e194]: View curated gift ideas
+      - link "✈️ Honeymoon Fund Contribute to experiences" [ref=e195] [cursor=pointer]:
+        - /url: "#"
+        - generic [ref=e196]: ✈️
+        - heading "Honeymoon Fund" [level=3] [ref=e197]
+        - paragraph [ref=e198]: Contribute to experiences
+  - contentinfo [ref=e199]:
+    - generic [ref=e200]:
+      - generic [ref=e201]: Kelli & Nathan
+      - paragraph [ref=e202]: September 10, 2027
+      - generic [ref=e203]: 💕 💍 💕
+      - paragraph [ref=e204]: "#KelliAndNathan2027"
+  - button "Back to top": ↑
+```

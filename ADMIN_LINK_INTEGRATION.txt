@@ -1,0 +1,48 @@
+
+WEDDING WEBSITE - ADMIN LINK INTEGRATION
+=========================================
+
+File Modified: index.html
+
+CHANGE MADE:
+============
+Added a styled "Admin" button link to the wedding website navigation bar.
+
+Location: Navigation menu (right side of the navbar)
+Link Target: http://localhost:8000/travel/dashboard
+Styling: 
+  - Background color: #8B7355 (elegant brown)
+  - Padding: 8px 16px
+  - Border radius: 4px
+  - Text color: White
+  - Positioned: Right side (margin-left: auto)
+
+HTML CODE ADDED:
+================
+<li style="margin-left: auto;"><a href="http://localhost:8000/travel/dashboard" 
+style="background-color: #8B7355; padding: 8px 16px; border-radius: 4px; color: white;">Admin</a></li>
+
+WHAT USERS WILL SEE:
+====================
+When visiting the wedding website (index.html), the top navigation bar will now have:
+- Our Story
+- The Event  
+- Gallery
+- RSVP
+- Registry
+- Admin (styled button on the right)
+
+CLICKING THE ADMIN LINK WILL TAKE USERS TO:
+=============================================
+http://localhost:8000/travel/dashboard
+
+From there they can:
+1. View all travel partners and coordinators
+2. Click through to individual travel partner dashboards
+3. Access Greg Plett's travel coordination dashboard with:
+   - Coordinator details
+   - Wedding information
+   - Payment processing status
+   - Travel coordination timeline
+
+INTEGRATION COMPLETE: YES

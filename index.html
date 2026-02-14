@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelli & Nathan - September 10, 2027</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p class="save-the-date">Save the Date</p>
+            <h1 class="couple-names">Kelli & Nathan</h1>
+            <div class="ornament">❧ ❧ ❧</div>
+            <p class="wedding-date">September 10, 2027</p>
+            <div id="countdown"></div>
+            <div class="hero-cta-group">
+                <a href="#rsvp" class="rsvp-btn">RSVP Now</a>
+                <a href="#event" class="ghost-btn">See Details</a>
+            </div>
+            <div class="hero-badges">
+                <div class="badge">📅 Sep 10, 2027</div>
+                <div class="badge">📍 Venue TBD</div>
+                <div class="badge">🕒 3:00 PM</div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-arrow">↓</div>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-logo">K & N</div>
+        <ul>
+            <li><a href="#story">Our Story</a></li>
+            <li><a href="#event">The Event</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#rsvp">RSVP</a></li>
+            <li><a href="#registry">Registry</a></li>
+            <li><a href="#admin-portal">Admin Portal</a></li>
+            <li class="nav-cta"><a class="admin-pill" href="#admin-portal">Admin</a></li>
+        </ul>
+    </nav>
+
+    <!-- Our Story Section -->
+    <section id="story" class="main-content">
+        <div class="section-header">
+            <span class="section-subtitle">How It All Began</span>
+            <h2>Our Love Story</h2>
+            <div class="divider"></div>
+        </div>
+        <div class="story-content">
+            <div class="story-image">
+                <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=600&h=400&fit=crop" alt="Couple holding hands">
+            </div>
+            <div class="story-text">
+                <p>Every love story is beautiful, but ours is our favorite. From the moment we met, we knew there was something special between us.</p>
+                <p>Through laughter and challenges, we've grown stronger together, building a foundation of love, trust, and endless support for one another.</p>
+            </div>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-icon">💕</div>
+                <span class="year">2022</span>
+                <h3>First Meeting</h3>
+                <p>Our paths crossed and sparks flew</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-icon">❤️</div>
+                <span class="year">2024</span>
+                <h3>Falling in Love</h3>
+                <p>Our journey together truly began</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-icon">💍</div>
+                <span class="year">2026</span>
+                <h3>The Proposal</h3>
+                <p>She said yes!</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-icon">👰</div>
+                <span class="year">2027</span>
+                <h3>Forever Begins</h3>
+                <p>Our wedding day</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Details -->
+    <section id="event">
+        <div class="section-header">
+            <span class="section-subtitle">Join Us</span>
+            <h2>Wedding Details</h2>
+            <div class="divider"></div>
+        </div>
+        <div class="event-cards">
+            <div class="card ceremony-card">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=400&h=250&fit=crop" alt="Wedding ceremony">
+                </div>
+                <div class="card-content">
+                    <div class="card-icon">💒</div>
+                    <h3>Ceremony</h3>
+                    <div class="card-details">
+                        <p><span class="detail-icon">📅</span> September 10, 2027</p>
+                        <p><span class="detail-icon">⏰</span> 3:00 PM</p>
+                        <p><span class="detail-icon">📍</span> Venue TBD</p>
+                    </div>
+                    <button onclick="addToCalendar()" class="card-btn">Add to Calendar</button>
+                </div>
+            </div>
+            <div class="card reception-card">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=400&h=250&fit=crop" alt="Wedding reception">
+                </div>
+                <div class="card-content">
+                    <div class="card-icon">🥂</div>
+                    <h3>Reception</h3>
+                    <div class="card-details">
+                        <p><span class="detail-icon">📅</span> September 10, 2027</p>
+                        <p><span class="detail-icon">⏰</span> 6:00 PM</p>
+                        <p><span class="detail-icon">📍</span> Venue TBD</p>
+                    </div>
+                    <button onclick="showMap()" class="card-btn">View Location</button>
+                </div>
+            </div>
+        </div>
+        <div class="dress-code">
+            <h3>👗 Dress Code</h3>
+            <p>Semi-Formal / Cocktail Attire</p>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <div class="section-header">
+            <span class="section-subtitle">Captured Moments</span>
+            <h2>Our Memories</h2>
+            <div class="divider"></div>
+        </div>
+        <div class="photo-grid">
+            <div class="photo-item large">
+                <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=600&h=400&fit=crop" alt="Romantic couple">
+                <div class="photo-overlay"><span>Our Adventure</span></div>
+            </div>
+            <div class="photo-item">
+                <img src="https://images.unsplash.com/photo-1529636798458-92182e662485?w=400&h=300&fit=crop" alt="Couple sunset">
+                <div class="photo-overlay"><span>Together</span></div>
+            </div>
+            <div class="photo-item">
+                <img src="https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=400&h=300&fit=crop" alt="Engagement ring">
+                <div class="photo-overlay"><span>She Said Yes</span></div>
+            </div>
+            <div class="photo-item">
+                <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&h=300&fit=crop" alt="Wedding decor">
+                <div class="photo-overlay"><span>The Details</span></div>
+            </div>
+            <div class="photo-item large">
+                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600&h=400&fit=crop" alt="Wedding venue">
+                <div class="photo-overlay"><span>Our Venue</span></div>
+            </div>
+            <div class="photo-item">
+                <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?w=400&h=300&fit=crop" alt="Pink flowers">
+                <div class="photo-overlay"><span>Blooming Love</span></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Gallery image viewer">
+        <button class="lightbox-close" type="button" aria-label="Close gallery">×</button>
+        <img class="lightbox-image" alt="Gallery preview" src="">
+        <div class="lightbox-caption"></div>
+    </div>
+
+    <!-- RSVP Section -->
+    <section id="rsvp">
+        <div class="rsvp-background">
+            <div class="section-header light">
+                <span class="section-subtitle">Be Our Guest</span>
+                <h2>RSVP</h2>
+                <div class="divider"></div>
+                <p class="rsvp-intro">We would be honored to have you celebrate with us. Please let us know if you can attend by August 10, 2027.</p>
+            </div>
+            <form id="rsvpForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="your@email.com" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="attendance">Will You Attend?</label>
+                        <select id="attendance" required>
+                            <option value="">Please Select</option>
+                            <option value="yes">Joyfully Accept 💕</option>
+                            <option value="no">Regretfully Decline</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="guests">Number of Guests</label>
+                        <input type="number" id="guests" placeholder="Including yourself" min="1" max="5">
+                    </div>
+                </div>
+                <div class="form-group full-width">
+                    <label for="message">Special Requests or Message</label>
+                    <textarea id="message" placeholder="Dietary requirements, song requests, or a message for the couple..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send RSVP 💌</button>
+            </form>
+            <div id="rsvpMessage"></div>
+        </div>
+    </section>
+
+    <!-- Registry Section -->
+        <!-- Admin Portal Section -->
+    <section id="admin-portal" class="admin-portal">
+        <div class="section-header light">
+            <span class="section-subtitle">For Wedding Coordinators</span>
+            <h2>Admin Portal</h2>
+            <div class="divider"></div>
+        </div>
+        <p class="admin-copy">
+            Access the travel coordination dashboard to manage travel arrangements, payments, and wedding logistics.
+        </p>
+        <a href="#" class="admin-button">
+            Enter Admin Portal
+        </a>
+        <p class="admin-footnote">Travel Coordination Management</p>
+    </section>
+
+<section id="registry">
+        <div class="section-header">
+            <span class="section-subtitle">With Gratitude</span>
+            <h2>Gift Registry</h2>
+            <div class="divider"></div>
+        </div>
+        <div class="registry-intro">
+            <p>Your presence at our wedding is the greatest gift we could ask for. However, if you wish to honor us with a gift, we have registered at the following stores:</p>
+        </div>
+        <div class="registry-links">
+            <a href="https://www.amazon.com/wedding/share/KelliAndNathan" target="_blank" rel="noopener" class="registry-card">
+                <div class="registry-icon">🛒</div>
+                <h3>Amazon Wishlist</h3>
+                <p>Browse our carefully selected items</p>
+            </a>
+            <a href="#" class="registry-card">
+                <div class="registry-icon">🎯</div>
+                <h3>Target Registry</h3>
+                <p>View curated gift ideas</p>
+            </a>
+            <a href="#" class="registry-card">
+                <div class="registry-icon">✈️</div>
+                <h3>Honeymoon Fund</h3>
+                <p>Contribute to experiences</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-names">Kelli & Nathan</div>
+            <p class="footer-date">September 10, 2027</p>
+            <div class="footer-hearts">💕 💍 💕</div>
+            <p class="footer-hashtag">#KelliAndNathan2027</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <button id="backToTop" class="back-to-top" type="button" aria-label="Back to top">↑</button>
+</body>
+</html>

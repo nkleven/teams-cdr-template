@@ -1,0 +1,161 @@
+[
+  {
+    "id": "calc_001",
+    "query": "What is 25 + 17?",
+    "expected_output": null,
+    "expected_tools": ["calculator"],
+    "category": "arithmetic",
+    "metadata": {
+      "difficulty": "easy",
+      "expected_result": 42
+    }
+  },
+  {
+    "id": "calc_002",
+    "query": "Calculate 150 multiplied by 37",
+    "expected_output": null,
+    "expected_tools": ["calculator"],
+    "category": "arithmetic",
+    "metadata": {
+      "difficulty": "medium",
+      "expected_result": 5550
+    }
+  },
+  {
+    "id": "calc_003",
+    "query": "What is the square root of 144?",
+    "expected_output": null,
+    "expected_tools": ["calculator"],
+    "category": "arithmetic",
+    "metadata": {
+      "difficulty": "medium",
+      "expected_result": 12
+    }
+  },
+  {
+    "id": "valid_001",
+    "query": "Is test@example.com a valid email address?",
+    "expected_output": null,
+    "expected_tools": ["data_validation"],
+    "category": "validation",
+    "metadata": {
+      "validation_type": "email",
+      "expected_valid": true
+    }
+  },
+  {
+    "id": "valid_002",
+    "query": "Validate this URL: https://github.com/user/repo",
+    "expected_output": null,
+    "expected_tools": ["data_validation"],
+    "category": "validation",
+    "metadata": {
+      "validation_type": "url",
+      "expected_valid": true
+    }
+  },
+  {
+    "id": "valid_003",
+    "query": "Check if this is a valid phone number: 555-123-4567",
+    "expected_output": null,
+    "expected_tools": ["data_validation"],
+    "category": "validation",
+    "metadata": {
+      "validation_type": "phone",
+      "expected_valid": true
+    }
+  },
+  {
+    "id": "text_001",
+    "query": "Analyze the sentiment of this text: I absolutely love this amazing product!",
+    "expected_output": null,
+    "expected_tools": ["text_analysis"],
+    "category": "analysis",
+    "metadata": {
+      "expected_sentiment": "positive"
+    }
+  },
+  {
+    "id": "text_002",
+    "query": "Count the words in this sentence: The quick brown fox jumps over the lazy dog.",
+    "expected_output": null,
+    "expected_tools": ["text_analysis"],
+    "category": "analysis",
+    "metadata": {
+      "expected_word_count": 9
+    }
+  },
+  {
+    "id": "text_003",
+    "query": "What are the most common words in: The cat sat on the mat. The cat was happy.",
+    "expected_output": null,
+    "expected_tools": ["text_analysis"],
+    "category": "analysis",
+    "metadata": {
+      "expected_top_words": ["cat", "the"]
+    }
+  },
+  {
+    "id": "general_001",
+    "query": "Hello, can you introduce yourself?",
+    "expected_output": null,
+    "expected_tools": [],
+    "category": "general",
+    "metadata": {
+      "requires_tools": false
+    }
+  },
+  {
+    "id": "general_002",
+    "query": "What tools do you have available?",
+    "expected_output": null,
+    "expected_tools": [],
+    "category": "general",
+    "metadata": {
+      "requires_tools": false
+    }
+  },
+  {
+    "id": "multi_001",
+    "query": "Calculate 50 + 30 and then validate if result@test.com is a valid email",
+    "expected_output": null,
+    "expected_tools": ["calculator", "data_validation"],
+    "category": "multi-tool",
+    "metadata": {
+      "difficulty": "hard",
+      "requires_multiple_tools": true
+    }
+  },
+  {
+    "id": "multi_002",
+    "query": "What is 10 times 5, and analyze the sentiment of 'This is fantastic!'",
+    "expected_output": null,
+    "expected_tools": ["calculator", "text_analysis"],
+    "category": "multi-tool",
+    "metadata": {
+      "difficulty": "hard",
+      "requires_multiple_tools": true
+    }
+  },
+  {
+    "id": "edge_001",
+    "query": "Calculate 1 divided by 0",
+    "expected_output": null,
+    "expected_tools": ["calculator"],
+    "category": "edge-cases",
+    "metadata": {
+      "expected_error": true,
+      "error_type": "division_by_zero"
+    }
+  },
+  {
+    "id": "edge_002",
+    "query": "Validate this email: not-an-email",
+    "expected_output": null,
+    "expected_tools": ["data_validation"],
+    "category": "edge-cases",
+    "metadata": {
+      "expected_valid": false
+    }
+  }
+]

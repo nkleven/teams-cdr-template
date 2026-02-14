@@ -1,0 +1,35 @@
+{
+  "payment_context": {
+    "integration_type": "stripe_api",
+    "processor": "stripe",
+    "enabled": true,
+    "provider": "stripe",
+    "travel_payments": true
+  },
+  "wedding_context": {
+    "groom_name": "Nathan Robert Kleven",
+    "wedding_day": 10,
+    "payment_context_enabled": true,
+    "travel_coordination_enabled": true,
+    "travel_payment_enabled": true,
+    "wedding_month": "September",
+    "travel_coordinator": "Greg Plett",
+    "relationship_status": "engaged",
+    "wedding_year": 2027,
+    "wedding_date": "2027-09-10",
+    "travel_payment_provider": "stripe",
+    "payment_provider": "stripe",
+    "context_enabled": true,
+    "wedding_date_formatted": "September 10, 2027",
+    "bride_name": "Kelli Marie Tait"
+  },
+  "team_roles": {
+    "payment_processor": "stripe",
+    "travel_coordinator": "Greg Plett",
+    "groom": "Nathan Robert Kleven",
+    "bride": "Kelli Marie Tait"
+  },
+  "certificate": {
+    "path": "./certificate.pem"
+  }
+}

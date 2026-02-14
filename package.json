@@ -1,0 +1,33 @@
+{
+  "name": "garden-of-eden-tax",
+  "version": "4.4.1-alpha",
+  "description": "Garden of Eden Tax & Advisory website",
+  "scripts": {
+    "start": "npx http-server . -p 3000",
+    "test": "playwright test",
+    "test:edge": "playwright test --project=\"Microsoft Edge\"",
+    "test:headed": "playwright test --headed --project=\"Microsoft Edge\"",
+    "test:ui": "playwright test --ui",
+    "swa:start": "swa start . --port 4280",
+    "swa:build": "echo 'No build required for static HTML'",
+    "swa:login": "swa login",
+    "swa:deploy": "swa deploy . --env production",
+    "swa:emulate": "swa start . --run 'npx http-server . -p 8080'",
+    "test:lighthouse": "lighthouse http://localhost:4280 --output html --output-path ./test-results/lighthouse-report.html",
+    "test:validation": "html-validate index.html",
+    "test:swa": "npm run swa:emulate & npm run test:integration",
+    "test:integration": "wait-on http://localhost:4280 && node test-integration.js",
+    "diagnose": "node diagnose-swa.js"
+  },
+  "devDependencies": {
+    "@azure/static-web-apps-cli": "^1.1.4",
+    "@playwright/test": "^1.57.0",
+    "http-server": "^14.1.1",
+    "lighthouse": "^11.0.0",
+    "html-validate": "^8.0.0",
+    "wait-on": "^7.0.0"
+  },
+  "keywords": ["wedding", "azure", "static-web-app"],
+  "author": "nkleven",
+  "license": "MIT"
+}
