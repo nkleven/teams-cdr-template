@@ -1,8 +1,8 @@
 import express, { Request, Response } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import { graphRouter } from './routes/graph';
-import { authRouter } from './routes/auth';
+import { graphRouter } from './routes/graph.js';
+import { authRouter } from './routes/auth.js';
 
 dotenv.config();
 
