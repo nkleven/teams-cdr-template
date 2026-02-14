@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/teams-logo.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CDR Dashboard</title>
+  <style>
+    :root {
+      /* Fluent UI Color Palette */
+      --theme-primary: #6264a7;
+      --theme-dark: #4b4d81;
+      --theme-darker: #3d3e66;
+      --theme-lighter: #e2e2f6;
+      --neutral-primary: #323130;
+      --neutral-secondary: #605e5c;
+      --neutral-tertiary: #a19f9d;
+      --neutral-light: #edebe9;
+      --neutral-lighter: #f3f2f1;
+      --neutral-white: #ffffff;
+      --error: #a80000;
+      --success: #107c10;
+      --warning: #797775;
+
+      /* Layout */
+      --border-radius: 4px;
+      --shadow-depth-4: 0 1.6px 3.6px 0 rgba(0,0,0,0.132), 0 0.3px 0.9px 0 rgba(0,0,0,0.108);
+      --shadow-depth-8: 0 3.2px 7.2px 0 rgba(0,0,0,0.132), 0 0.6px 1.8px 0 rgba(0,0,0,0.108);
+    }
+
+    [data-theme="dark"] {
+      --theme-primary: #7f85f5; /* Lighter purple for dark mode */
+      --theme-dark: #6264a7;
+      --neutral-primary: #ffffff;
+      --neutral-secondary: #d0d0d0;
+      --neutral-tertiary: #c8c8c8;
+      --neutral-light: #292929; /* Card bg */
+      --neutral-lighter: #201f1f; /* App bg */
+      --neutral-white: #292929;
+      --error: #e81123;
+      --success: #57a300;
+    }
+
+    body {
+      font-family: "Segoe UI", "Segoe UI Web (West European)", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--neutral-lighter);
+      color: var(--neutral-primary);
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      transition: background-color 0.3s, color 0.3s;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Header */
+    header {
+      background-color: #464775; /* Always Teams Purple */
+      height: 48px;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: white;
+      box-shadow: var(--shadow-depth-4);
+      z-index: 100;
+    }
+    header h1 {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    /* Buttons (Fluent UI Standard) */
+    .fui-btn {
+      height: 32px;
+      min-width: 80px;
+      padding: 0 16px;
+      border-radius: 2px; /* Fluent UI uses 2px or 4px depending on version, 2px is classic */
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid transparent;
+      transition: all 0.1s;
+      outline: none;
+    }
+
+    .fui-btn-primary {
+      background-color: var(--theme-primary);
+      color: white;
+      border-color: transparent;
+    }
+    .fui-btn-primary:hover {
+      background-color: var(--theme-dark);
+    }
+    .fui-btn-primary:active {
+      background-color: var(--theme-darker);
+    }
+
+    .fui-btn-standard {
+      background-color: var(--neutral-white);
+      color: var(--neutral-primary);
+      border-color: var(--neutral-tertiary); /* Actually usually lighter, but for contrast */
+    }
+    [data-theme="dark"] .fui-btn-standard {
+        background-color: transparent;
+        border-color: var(--neutral-secondary);
+    }
+    .fui-btn-standard:hover {
+      background-color: var(--neutral-lighter);
+    }
+
+    /* Inputs */
+    .fui-input-group {
+      margin-bottom: 16px;
+      text-align: left;
+    }
+    .fui-label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: var(--neutral-primary);
+    }
+    .fui-input {
+      width: 100%;
+      height: 32px;
+      padding: 0 8px;
+      border: 1px solid var(--neutral-tertiary);
+      border-radius: 2px;
+      box-sizing: border-box;
+      font-family: inherit;
+      font-size: 14px;
+      background-color: var(--neutral-white);
+      color: var(--neutral-primary);
+    }
+    .fui-input:focus {
+      border-color: var(--theme-primary);
+      border-bottom-width: 2px;
+    }
+
+    /* Main Layout */
+    main {
+      flex: 1;
+      padding: 24px;
+      overflow-y: auto;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .card {
+      background-color: var(--neutral-white);
+      border-radius: var(--border-radius);
+      padding: 20px;
+      box-shadow: var(--shadow-depth-4);
+      margin-bottom: 20px;
+    }
+
+    /* Wizard / Stepper */
+    .wizard-container {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .wizard-steps {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 32px;
+      position: relative;
+    }
+    .wizard-steps::before {
+      content: '';
+      position: absolute;
+      top: 14px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: var(--neutral-light);
+      z-index: 0;
+    }
+    .step-indicator {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: var(--neutral-light);
+      color: var(--neutral-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 14px;
+      position: relative;
+      z-index: 1;
+      border: 2px solid var(--neutral-white);
+    }
+    .step-indicator.active {
+      background-color: var(--theme-primary);
+      color: white;
+    }
+    .step-indicator.completed {
+      background-color: var(--success);
+      color: white;
+    }
+
+    /* Gamification */
+    .badge-container {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 8px;
+      border-radius: 12px;
+      background-color: var(--neutral-lighter);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--neutral-primary);
+      border: 1px solid transparent;
+    }
+    .badge.earned {
+      background-color: rgba(98, 100, 167, 0.1);
+      color: var(--theme-primary);
+      border-color: var(--theme-primary);
+    }
+    .progress-bar {
+      height: 4px;
+      background-color: var(--neutral-light);
+      border-radius: 2px;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+    .progress-fill {
+      height: 100%;
+      background-color: var(--success);
+      width: 0%;
+      transition: width 0.5s ease;
+    }
+
+    /* Tables */
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th { text-align: left; padding: 10px; border-bottom: 1px solid var(--neutral-light); color: var(--neutral-secondary); font-weight: 600; }
+    td { padding: 10px; border-bottom: 1px solid var(--neutral-light); }
+    tr:hover { background-color: var(--neutral-lighter); }
+
+    /* SIP Ladder (Keep existing but refine colors) */
+    .sip-ladder {
+      background-color: var(--neutral-white);
+      padding: 20px;
+      border: 1px solid var(--neutral-light);
+      border-radius: 4px;
+      font-family: 'Consolas', monospace;
+    }
+    .sip-flow-row { display: flex; justify-content: space-between; align-items: center; height: 40px; position: relative; }
+    .sip-actor { width: 120px; text-align: center; font-weight: 600; border-bottom: 2px solid var(--neutral-secondary); padding-bottom: 5px; }
+    .sip-arrow { flex: 1; height: 1px; background-color: var(--neutral-secondary); position: relative; margin: 0 20px; }
+    .sip-arrow::after { content: ''; position: absolute; right: 0; top: -4px; border-top: 4px solid transparent; border-bottom: 4px solid transparent; border-left: 6px solid var(--neutral-secondary); }
+    .sip-arrow.left::after { left: 0; right: auto; border-left: none; border-right: 6px solid var(--neutral-secondary); }
+    .sip-label { position: absolute; top: -18px; width: 100%; text-align: center; color: var(--theme-primary); font-size: 11px; font-weight: 600; }
+
+    /* Tabs */
+    .tabs { display: flex; gap: 24px; border-bottom: 1px solid var(--neutral-light); margin-bottom: 24px; }
+    .tab { padding-bottom: 10px; cursor: pointer; font-size: 14px; color: var(--neutral-secondary); border-bottom: 3px solid transparent; font-weight: 400; }
+    .tab.active { color: var(--neutral-primary); font-weight: 600; border-bottom-color: var(--theme-primary); }
+  </style>
+</head>
+<body>
+<header>
+  <h1>CDR Dashboard</h1>
+  <div style="display: flex; align-items: center; gap: 12px;">
+    <span id="user-badge-area" style="font-size: 12px; font-weight: 600; background: rgba(255,255,255,0.2); padding: 4px 8px; border-radius: 4px; display: none;">🏆 Setup Wizard</span>
+    <button id="theme-toggle" class="fui-btn fui-btn-standard" style="background: rgba(255,255,255,0.1); color: white; border: none;">Dark Mode</button>
+  </div>
+</header>
+<main id="app">
+  <!-- Content will be populated by main.ts -->
+</main>
+<script type="module" src="/src/main.ts"></script>
+</body>
+</html>
