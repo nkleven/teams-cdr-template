@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { CallRecordsList } from './components/CallRecordsList';
 import { AuthStatus } from './components/AuthStatus';
 import { apiService } from './services/apiService';

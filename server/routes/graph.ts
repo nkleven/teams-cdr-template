@@ -14,11 +14,12 @@ const getGraphClient = (accessToken: string) => {
 };
 
 // Get call records from Microsoft Graph
-router.get('/callrecords', async (req: Request, res: Response) => {
+router.get('/callrecords', async (req: Request, res: Response): Promise<void> => {
   try {
     const authHeader = req.headers.authorization;
     if (!authHeader || !authHeader.startsWith('Bearer ')) {
-      return res.status(401).json({ error: 'Missing or invalid authorization header' });
+      res.status(401).json({ error: 'Missing or invalid authorization header' });
+      return;
     }
 
     const accessToken = authHeader.substring(7);
@@ -46,11 +47,12 @@ router.get('/callrecords', async (req: Request, res: Response) => {
 });
 
 // Get specific call record by ID
-router.get('/callrecords/:id', async (req: Request, res: Response) => {
+router.get('/callrecords/:id', async (req: Request, res: Response): Promise<void> => {
   try {
     const authHeader = req.headers.authorization;
     if (!authHeader || !authHeader.startsWith('Bearer ')) {
-      return res.status(401).json({ error: 'Missing or invalid authorization header' });
+      res.status(401).json({ error: 'Missing or invalid authorization header' });
+      return;
     }
 
     const accessToken = authHeader.substring(7);
@@ -73,11 +75,12 @@ router.get('/callrecords/:id', async (req: Request, res: Response) => {
 });
 
 // Get call sessions for a specific call record
-router.get('/callrecords/:id/sessions', async (req: Request, res: Response) => {
+router.get('/callrecords/:id/sessions', async (req: Request, res: Response): Promise<void> => {
   try {
     const authHeader = req.headers.authorization;
     if (!authHeader || !authHeader.startsWith('Bearer ')) {
-      return res.status(401).json({ error: 'Missing or invalid authorization header' });
+      res.status(401).json({ error: 'Missing or invalid authorization header' });
+      return;
     }
 
     const accessToken = authHeader.substring(7);

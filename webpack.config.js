@@ -1,12 +1,12 @@
-```javascript
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: './client/index.tsx',
     output: {
-        filename: 'bundle.js',
+        filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist/client'),
+        clean: true,
         publicPath: '/'
     },
     module: {
@@ -43,11 +43,5 @@ module.exports = {
                 changeOrigin: true
             }
         }
-    },
-    optimization: {
-        splitChunks: {
-            chunks: 'all'
-        }
     }
 };
-```

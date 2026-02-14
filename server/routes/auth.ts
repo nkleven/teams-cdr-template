@@ -15,7 +15,7 @@ const msalConfig = {
 const cca = new ConfidentialClientApplication(msalConfig);
 
 // Get access token using client credentials flow
-router.post('/token', async (req: Request, res: Response) => {
+router.post('/token', async (_req: Request, res: Response) => {
   try {
     const tokenRequest = {
       scopes: [process.env.GRAPH_SCOPES || 'https://graph.microsoft.com/.default'],

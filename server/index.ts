@@ -18,7 +18,7 @@ app.use('/api/auth', authRouter);
 app.use('/api/graph', graphRouter);
 
 // Health check endpoint
-app.get('/api/health', (req: Request, res: Response) => {
+app.get('/api/health', (_req: Request, res: Response) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 

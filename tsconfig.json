@@ -9,7 +9,6 @@
     "allowJs": true,
     "checkJs": false,
     "outDir": "./dist",
-    "rootDir": "./src",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
@@ -23,12 +22,12 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": [
-    "src/**/*",
     "client/**/*"
   ],
   "exclude": [
     "node_modules",
     "dist",
+    "server",
     "**/*.spec.ts",
     "**/*.test.ts"
   ]
