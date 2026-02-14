@@ -58,12 +58,13 @@ This template provides a ready-to-use application that:
 
 - 🔐 **Azure AD Authentication**: Secure authentication using MSAL and client credentials flow
 - 📊 **Call Records Dashboard**: View Teams call history with detailed information
-- 🎯 **TypeScript**: Full type safety across frontend and backend
+- 🎯 **TypeScript**: Full type safety across frontend and backend (ESM enabled)
 - ⚛️ **React Frontend**: Modern React application with hooks
 - 🚀 **Node.js Backend**: Express server with MS Graph SDK integration
 - 📱 **Responsive Design**: Works on desktop and mobile devices
 - 🔄 **Real-time Data**: Fetch latest call records from Microsoft Graph
 - 🎨 **Clean UI**: Beautiful gradient design with intuitive table layout
+- 📁 **Stale Artifacts**: Note that the `src/` directory contains legacy/unrelated Python code; the active codebase is in `client/` and `server/`.
 
 ## Prerequisites
 
@@ -161,8 +162,11 @@ Your API permissions should show:
 Start both backend and frontend development servers:
 
 ```bash
+# Note: Ensure you have run 'npm install'
 npm run dev
 ```
+
+> **Note for Windows users**: If you encounter issues with ESM modules (ERR_MODULE_NOT_FOUND), the `package.json` has been configured to use the `ts-node/esm` loader for development.
 
 This will start:
 - **Backend server** on `http://localhost:3001`

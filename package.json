@@ -2,9 +2,10 @@
   "name": "teams-cdr-template",
   "version": "1.0.0",
   "description": "Teams Call Detail Records (CDR) Template Application using MS Graph, Node.js, TypeScript and React",
+  "type": "module",
   "scripts": {
     "dev": "concurrently \"npm run server:dev\" \"npm run client:dev\"",
-    "server:dev": "nodemon --watch server --ext ts --exec ts-node server/index.ts",
+    "server:dev": "nodemon --watch server --ext ts --exec \"node --loader ts-node/esm\" server/index.ts",
     "client:dev": "webpack serve --mode development",
     "build": "npm run build:client && npm run build:server",
     "build:client": "webpack --mode production",
